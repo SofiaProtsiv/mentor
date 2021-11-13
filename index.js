@@ -36,7 +36,6 @@ function createMarkup(cards) {
 
     for (let i = 0; i < cards.length; i += 1) {
         arrayOfCards.push(markup[i]);
-        console.log(markup[i])
     }
 
     listOfCards.insertAdjacentHTML("beforeend", arrayOfCards.join(""));
