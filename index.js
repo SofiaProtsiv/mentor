@@ -44,15 +44,21 @@ function onClickCardDataChange(event) {
 
 function onClickSort() {
     destroyCards();
-    createMarkup(cards.sort(byField('lastUsed')));
+    createMarkup(cards.sort(byField));
 }
 
-function byField(field) {
-    return (a, b) => a[field] < b[field] ? 1 : -1;
+function byField(a, b) {
+    if(a.lastUsed > b.lastUsed){
+        return -1;
+    }
 }
-  
 function destroyCards() {
     listOfCards.innerHTML = '';
 }
+
+function getRandomHexColor() {
+    return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+  }
+  
 
   //1. При нажатии на кнопку Sort картинки должны перерендириться в соответствии с ключем обьекта lastUsed (последнее использование lastUsed должно быть сверху списка
