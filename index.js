@@ -1,29 +1,34 @@
 'use strict'
 
 const cards = [
-  { name: "card 1", lastUsed: new Date().getTime(), creationDate: new Date().getTime() },
-  { name: "card 2", lastUsed: new Date().getTime(), creationDate: new Date().getTime() },
-  { name: "card 3", lastUsed: new Date().getTime(), creationDate: new Date().getTime() },
-  { name: "card 4", lastUsed: new Date().getTime(), creationDate: new Date().getTime() },
-  { name: "card 5", lastUsed: new Date().getTime(), creationDate: new Date().getTime() },
-  { name: "card 6", lastUsed: new Date().getTime(), creationDate: new Date().getTime() },
-  { name: "card 7", lastUsed: new Date().getTime(), creationDate: new Date().getTime() },
-  {name: "card 8", lastUsed: new Date().getTime(), creationDate: new Date().getTime()}, 
+  { name: "card 1", lastUsed: new Date().getTime(), creationDate: new Date().getTime(), img: 'https://cdn-icons-png.flaticon.com/512/18/18259.png'},
+  { name: "card 2", lastUsed: new Date().getTime(), creationDate: new Date().getTime(), img: 'https://cdn-icons-png.flaticon.com/512/18/18414.png'},
+  { name: "card 3", lastUsed: new Date().getTime(), creationDate: new Date().getTime(), img: 'https://cdn-icons-png.flaticon.com/512/18/18162.png'},
+  { name: "card 4", lastUsed: new Date().getTime(), creationDate: new Date().getTime(), img: 'https://cdn-icons-png.flaticon.com/512/20/20181.png'},
+  { name: "card 5", lastUsed: new Date().getTime(), creationDate: new Date().getTime(), img: 'https://cdn-icons-png.flaticon.com/512/18/18429.png'},
+  { name: "card 6", lastUsed: new Date().getTime(), creationDate: new Date().getTime(), img: 'https://cdn-icons-png.flaticon.com/512/18/18251.png'},
+  { name: "card 7", lastUsed: new Date().getTime(), creationDate: new Date().getTime(), img: 'https://cdn-icons-png.flaticon.com/512/18/18482.png'},
+  { name: "card 8", lastUsed: new Date().getTime(), creationDate: new Date().getTime(), img: 'https://cdn-icons-png.flaticon.com/512/18/18173.png'}, 
 ]
 
 const listOfCards = document.getElementById("item");
+const backet = document.getElementById("backet");
 const button = document.getElementById("sort");
+const push = document.getElementById("push");
+
 
 listOfCards.addEventListener("click", onClickCardDataChange);
 button.addEventListener("click", onClickSort);
+push.addEventListener("click", onClickPush);
 
 createMarkup(cards);
 
+
 function createMarkup(cards) {
-    const markup = cards.map(({ name }) =>
-        `<li class ="list" id = "${name}">
+    const markup = cards.map(({ name, img }) =>
+        `<li class ="list" id = "${name}" style="background: center / contain no-repeat url('${img}')">
             <div>
-                <p>${name}</p>
+                <p></p>
             </div> 
         </li>`
     );
@@ -31,20 +36,40 @@ function createMarkup(cards) {
 
     for (let i = 0; i < cards.length; i += 1) {
         arrayOfCards.push(markup[i]);
+        console.log(markup[i])
     }
+
     listOfCards.insertAdjacentHTML("beforeend", arrayOfCards.join(""));
 }
 
-  
-function onClickCardDataChange(event) {
-    cards.forEach((element) => {
-        if (event.target.id === element.name) { element.lastUsed= new Date().getTime()  }
-    })   
+function putCardIntoBasket(cards) {
+    const markup = cards.map(({ name, img }) =>
+        `<li class ="list" id = "${name}" style="background: center / contain no-repeat url('${img}')">
+            <div>
+                <p></p>
+            </div> 
+        </li>`
+    );
+
+    let arrayOfSelectedCards= [];
+
+    for (let i = 0; i < onClickCardDataChange.length; i += 1) {
+        arrayOfSelectedCards.push(markup[i])
+    }
+    backet.insertAdjacentHTML("beforeend", arrayOfSelectedCards.join(""));
+
+}
+function onClickPush () {
+    onClickSort();
+    putCardIntoBasket(cards);
 }
 
-function onClickSort() {
-    destroyCards();
-    createMarkup(cards.sort(byField));
+function onClickCardDataChange(event) {
+    cards.forEach((element) => {
+        if (event.target.id === element.name) { 
+            element.lastUsed = new Date().getTime()  
+        }
+    })   
 }
 
 function byField(a, b) {
@@ -52,13 +77,11 @@ function byField(a, b) {
         return -1;
     }
 }
-function destroyCards() {
-    listOfCards.innerHTML = '';
+function onClickSort() {
+    destroyCards();
+    createMarkup(cards.sort(byField));
 }
 
-function getRandomHexColor() {
-    return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-  }
-  
-
-  //1. При нажатии на кнопку Sort картинки должны перерендириться в соответствии с ключем обьекта lastUsed (последнее использование lastUsed должно быть сверху списка
+function destroyCards(event) {
+    listOfCards.innerHTML = '';
+}
