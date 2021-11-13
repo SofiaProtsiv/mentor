@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: block;
+    text-align: center;
+    
+    background: rgb(197, 218, 247);
+    
+    font-family: "Open Sans"
+  }
+  ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+  }
+.list{
+    margin: 15px;
+    cursor: pointer;
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    background-color: rgb(99, 187, 245);
+    transition: background-color .2s ease-in;
+}
+  .list:hover{
+    background-color: rgb(235, 131, 221);
+  }
+  button{
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+    color: aliceblue;
+    background-color: black;
+    transition: background-color .2s ease-in;
+  }
+  button:hover{
+    color: rgb(0, 0, 0);
+    background-color: white;
+  }
