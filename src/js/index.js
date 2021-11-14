@@ -1,15 +1,6 @@
 'use strict'
 
-const cards = [
-  { name: "card 1", lastUsed: new Date().getTime(), creationDate: new Date().getTime(), img: 'https://cdn-icons-png.flaticon.com/512/18/18259.png'},
-  { name: "card 2", lastUsed: new Date().getTime(), creationDate: new Date().getTime(), img: 'https://cdn-icons-png.flaticon.com/512/18/18414.png'},
-  { name: "card 3", lastUsed: new Date().getTime(), creationDate: new Date().getTime(), img: 'https://cdn-icons-png.flaticon.com/512/18/18162.png'},
-  { name: "card 4", lastUsed: new Date().getTime(), creationDate: new Date().getTime(), img: 'https://cdn-icons-png.flaticon.com/512/20/20181.png'},
-  { name: "card 5", lastUsed: new Date().getTime(), creationDate: new Date().getTime(), img: 'https://cdn-icons-png.flaticon.com/512/18/18429.png'},
-  { name: "card 6", lastUsed: new Date().getTime(), creationDate: new Date().getTime(), img: 'https://cdn-icons-png.flaticon.com/512/18/18251.png'},
-  { name: "card 7", lastUsed: new Date().getTime(), creationDate: new Date().getTime(), img: 'https://cdn-icons-png.flaticon.com/512/18/18482.png'},
-  { name: "card 8", lastUsed: new Date().getTime(), creationDate: new Date().getTime(), img: 'https://cdn-icons-png.flaticon.com/512/18/18173.png'}, 
-]
+import {cards} from "./cards"
 
 const listOfCards = document.getElementById("item");
 const backet = document.getElementById("backet");
@@ -22,7 +13,6 @@ button.addEventListener("click", onClickSort);
 clear.addEventListener("click", onClear);
 
 createMarkup(cards);
-
 
 function createMarkup(cards) {
     const markup = cards.map(({ name, img }) =>
