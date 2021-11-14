@@ -110,7 +110,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 const cards = exports.cards = [{ name: "card 1", lastUsed: new Date().getTime(), creationDate: new Date().getTime(), img: 'https://cdn-icons-png.flaticon.com/512/3076/3076020.png' }, { name: "card 2", lastUsed: new Date().getTime(), creationDate: new Date().getTime(), img: 'https://cdn-icons-png.flaticon.com/512/3076/3076125.png' }, { name: "card 3", lastUsed: new Date().getTime(), creationDate: new Date().getTime(), img: 'https://cdn-icons-png.flaticon.com/512/3075/3075957.png' }, { name: "card 4", lastUsed: new Date().getTime(), creationDate: new Date().getTime(), img: 'https://cdn-icons-png.flaticon.com/512/3076/3076083.png' }, { name: "card 5", lastUsed: new Date().getTime(), creationDate: new Date().getTime(), img: 'https://cdn-icons-png.flaticon.com/512/3075/3075977.png' }, { name: "card 6", lastUsed: new Date().getTime(), creationDate: new Date().getTime(), img: 'https://cdn-icons-png.flaticon.com/512/3076/3076100.png' }, { name: "card 7", lastUsed: new Date().getTime(), creationDate: new Date().getTime(), img: 'https://cdn-icons-png.flaticon.com/512/3076/3076014.png' }, { name: "card 8", lastUsed: new Date().getTime(), creationDate: new Date().getTime(), img: 'https://cdn-icons-png.flaticon.com/512/2515/2515135.png' }];
-},{}],6:[function(require,module,exports) {
+},{}],3:[function(require,module,exports) {
 'use strict';
 
 var _cards = require("./cards");
@@ -127,8 +127,8 @@ clear.addEventListener("click", onClear);
 createMarkup(_cards.cards);
 
 function createMarkup(cards) {
-    const markup = cards.map(({ name, img }) => `<li class ="list" id = "${name}" style="background: center / contain no-repeat url('${img}')">
-            <div>
+    const markup = cards.map(({ name, img }) => `<li class = "list" id = "${name}") style="background: center / contain no-repeat url('${img}'">
+            <div class = "cardImg">
                 <p></p>
             </div> 
         </li>`);
@@ -174,7 +174,7 @@ function destroyCards(event) {
 function onClear() {
     backet.innerHTML = '';
 }
-},{"./cards":19}],8:[function(require,module,exports) {
+},{"./cards":19}],10:[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -203,7 +203,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '51184' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '51469' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -344,5 +344,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[8,6], null)
+},{}]},{},[10,3], null)
 //# sourceMappingURL=/js.3033e6ff.map

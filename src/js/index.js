@@ -16,8 +16,8 @@ createMarkup(cards);
 
 function createMarkup(cards) {
     const markup = cards.map(({ name, img }) =>
-        `<li class ="list" id = "${name}" style="background: center / contain no-repeat url('${img}')">
-            <div>
+        `<li class = "list" id = "${name}") style="background: center / contain no-repeat url('${img}'">
+            <div class = "cardImg">
                 <p></p>
             </div> 
         </li>`

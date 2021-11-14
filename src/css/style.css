@@ -21,7 +21,7 @@ body {
   margin: 25px;
   cursor: pointer;
   text-align: center;
-  background-color: rgb(99, 187, 245);
+
   transition: width .2s ease-in, height .2s ease-in;;
 }
   .list:hover{
